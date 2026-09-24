@@ -1,0 +1,9 @@
+ProductID,ProductName,Category,Price
+P001,Laptop,Electronics,55000
+P002,Mouse,Accessories,800
+P003,Keyboard,Accessories,1500
+P004,Monitor,Electronics,12000
+P005,Webcam,Accessories,2200
+,Missing ID Product,Accessories,500
+P006,Negative Price Product,Accessories,-100
+P002,Duplicate Product,Accessories,850

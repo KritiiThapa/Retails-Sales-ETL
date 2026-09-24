@@ -1,0 +1,10 @@
+CustomerID,CustomerName,Email,City,State
+C001,Rahul Sharma,rahul@gmail.com,Delhi,Delhi
+C002,Amit Kumar,amit@gmail.com,Gurgaon,Haryana
+C003,Priya Singh,priya@gmail.com,Jaipur,Rajasthan
+C004,Neha Verma,neha@gmail.com,Mumbai,Maharashtra
+C005,Suresh Rao,suresh@gmail.com,Bangalore,Karnataka
+,Missing ID Customer,missingid@gmail.com,Pune,Maharashtra
+C006,,noemail@gmail.com,Chennai,Tamil Nadu
+C007,Bad Email Customer,not-an-email,Kolkata,West Bengal
+C002,Duplicate Customer,dup@gmail.com,Delhi,Delhi
