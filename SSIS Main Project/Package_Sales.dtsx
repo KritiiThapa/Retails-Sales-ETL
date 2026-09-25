@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package_Sales"
   DTS:PackageType="5"
-  DTS:VersionBuild="155"
-  DTS:VersionGUID="{7A8FEC91-9A85-4B11-909C-125B1C16544E}">
+  DTS:VersionBuild="173"
+  DTS:VersionGUID="{F6C0F648-5EDE-4169-B204-1F281E235343}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,6 +35,17 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="C:\Users\krthapa\source\repos\SSIS Main Project\Input\Customers.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Error]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{46C76625-EACB-4D6D-89C7-6545CDAAF0C0}"
+      DTS:ObjectName="Error">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\krthapa\source\repos\SSIS Main Project\Error" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -309,7 +320,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABz5EZkClYcAtJWpK/mOnM4hZAYMxiI2Ot2kZqW6iolngAAAAAOgAAAAAIAACAAAAAEz1df7pF/VUvTDdY3h0ORwSGNy23K7BX4lZPUV0y/YiAAAAC3bHTEZNBZvPk+Ja6aFCHIxmoPfoH1sHEH2+WQW4Fn9UAAAABLXtO84ZShryRpX4Ct9kk/AW/OECj2duNxPagDaQABAhWy3Y6YBB07JoQkelvLL138Cy6Mq8NTbrF0Ishf6aqq</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABSprAT+EazjV6b43ONv8bP30pRcOUqi8K5gT9dObCjWgAAAAAOgAAAAAIAACAAAAB5fNI5RDxNsJpm+LbG9SWTkCcCZDSG1UJlhG96uXxvjyAAAADxinUz0DcF+122frc2KO3lm7j2fklQRT5lJ2WGGRe7gUAAAADeqJugHriXWcoTKi7+C0JtU9VbZC3X3Co046aHJfbTgUxFCABYwKDQ8KI1ZN4VsJzLJqaPR03BownskxiLxQp5</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -518,6 +529,57 @@
                       refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input]"
                       description="Input to the Derived Column Transformation"
                       name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[SaleID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="SaleID"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[SaleID]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[SaleDate]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="SaleDate"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[SaleDate]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[CustomerID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="CustomerID"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[CustomerID]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[ProductID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ProductID"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[ProductID]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[StoreID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="StoreID"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[StoreID]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[Quantity]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Quantity"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[Quantity]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[UnitPrice]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="UnitPrice"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[UnitPrice]" />
+                      </inputColumns>
                       <externalMetadataColumns />
                     </input>
                   </inputs>
@@ -544,13 +606,13 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_STR,500,1252)@[User::CurrentSalesFile]</property>
+                              name="Expression">(DT_STR,500,1252)@[User::CurrentSalesFileName]</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,500,1252)@[User::CurrentSalesFile]</property>
+                              name="FriendlyExpression">(DT_STR,500,1252)@[User::CurrentSalesFileName]</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -568,13 +630,37 @@
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_STR,500,1252)"Sales"</property>
+                              name="Expression">(DT_STR,500,1252)"StgSales"</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,500,1252)"Sales"</property>
+                              name="FriendlyExpression">(DT_STR,500,1252)"StgSales"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[RawData]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[RawData]"
+                          name="RawData"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,500,1252)("SaleID=" + ([ISNULL](#{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[SaleID]}) ? "" : #{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[SaleID]}) + ", SaleDate=" + ([ISNULL](#{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[SaleDate]}) ? "" : #{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[SaleDate]}) + ", CustomerID=" + ([ISNULL](#{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[CustomerID]}) ? "" : #{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[CustomerID]}) + ", ProductID=" + ([ISNULL](#{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[ProductID]}) ? "" : #{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[ProductID]}) + ", StoreID=" + ([ISNULL](#{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[StoreID]}) ? "" : #{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[StoreID]}) + ", Quantity=" + ([ISNULL](#{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[Quantity]}) ? "" : #{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[Quantity]}) + ", UnitPrice=" + ([ISNULL](#{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[UnitPrice]}) ? "" : #{Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[UnitPrice]}))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,500,1252)("SaleID=" + (ISNULL(SaleID) ? "" : SaleID) + ", SaleDate=" + (ISNULL(SaleDate) ? "" : SaleDate) + ", CustomerID=" + (ISNULL(CustomerID) ? "" : CustomerID) + ", ProductID=" + (ISNULL(ProductID) ? "" : ProductID) + ", StoreID=" + (ISNULL(StoreID) ? "" : StoreID) + ", Quantity=" + (ISNULL(Quantity) ? "" : Quantity) + ", UnitPrice=" + (ISNULL(UnitPrice) ? "" : UnitPrice))</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -689,6 +775,203 @@
                           refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Fact Sales Table"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FactSales]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
+                      connectionManagerRefId="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].Columns[SaleID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="SaleID"
+                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[SaleID]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleID]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Quantity"
+                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="UnitPrice"
+                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].Columns[CustomerKey]"
+                          cachedDataType="i4"
+                          cachedName="CustomerKey"
+                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Customer.Outputs[Lookup Match Output].Columns[CustomerKey]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                          cachedDataType="i4"
+                          cachedName="ProductKey"
+                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Product.Outputs[Lookup Match Output].Columns[ProductKey]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].Columns[StoreKey]"
+                          cachedDataType="i4"
+                          cachedName="StoreKey"
+                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Store.Outputs[Lookup Match Output].Columns[StoreKey]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].Columns[SaleDateConverted]"
+                          cachedDataType="dbDate"
+                          cachedName="SaleDateConverted"
+                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDateConverted]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[SalesKey]"
+                          dataType="i8"
+                          name="SalesKey" />
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[SaleID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SaleID" />
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
+                          dataType="dbDate"
+                          name="SaleDate" />
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                          dataType="i4"
+                          name="CustomerKey" />
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                          dataType="i4"
+                          name="ProductKey" />
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                          dataType="i4"
+                          name="StoreKey" />
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                          dataType="i4"
+                          name="Quantity" />
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                          dataType="numeric"
+                          name="UnitPrice"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                          dataType="dbTimeStamp"
+                          name="LoadDate" />
+                        <externalMetadataColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input].ExternalColumns[TotalAmount]"
+                          dataType="numeric"
+                          name="TotalAmount"
+                          precision="29"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1402,203 +1685,6 @@ where [refTable].[StoreID] = ?</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="OLE DB Destination"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[FactSales]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
-                      connectionManagerRefId="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SaleID]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="SaleID"
-                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleID]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleID]" />
-                        <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Quantity"
-                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]" />
-                        <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="UnitPrice"
-                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
-                        <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerKey]"
-                          cachedDataType="i4"
-                          cachedName="CustomerKey"
-                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Customer.Outputs[Lookup Match Output].Columns[CustomerKey]" />
-                        <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductKey]"
-                          cachedDataType="i4"
-                          cachedName="ProductKey"
-                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Product.Outputs[Lookup Match Output].Columns[ProductKey]" />
-                        <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreKey]"
-                          cachedDataType="i4"
-                          cachedName="StoreKey"
-                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Store.Outputs[Lookup Match Output].Columns[StoreKey]" />
-                        <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SaleDateConverted]"
-                          cachedDataType="dbDate"
-                          cachedName="SaleDateConverted"
-                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SaleDateConverted]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesKey]"
-                          dataType="i8"
-                          name="SalesKey" />
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleID]"
-                          codePage="1252"
-                          dataType="str"
-                          length="20"
-                          name="SaleID" />
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
-                          dataType="dbDate"
-                          name="SaleDate" />
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
-                          dataType="i4"
-                          name="CustomerKey" />
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
-                          dataType="i4"
-                          name="ProductKey" />
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
-                          dataType="i4"
-                          name="StoreKey" />
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
-                          dataType="i4"
-                          name="Quantity" />
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
-                          dataType="numeric"
-                          name="UnitPrice"
-                          precision="18"
-                          scale="2" />
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
-                          dataType="dbTimeStamp"
-                          name="LoadDate" />
-                        <externalMetadataColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalAmount]"
-                          dataType="numeric"
-                          name="TotalAmount"
-                          precision="29"
-                          scale="2" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -2153,6 +2239,14 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                           cachedName="SaleID"
                           externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
                           lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[SaleID]" />
+                        <inputColumn
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].Columns[RawData]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="RawData"
+                          externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[RawData]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2164,13 +2258,13 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                           refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
                           codePage="1252"
                           dataType="str"
-                          length="255"
+                          length="500"
                           name="SourceFile" />
                         <externalMetadataColumn
                           refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="500"
                           name="TableName" />
                         <externalMetadataColumn
                           refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
@@ -3306,19 +3400,19 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Conditional Split.Outputs[InvalidRows]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output1]"
-                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Store.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Product.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output2]"
                   endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 1.Inputs[Row Count Input 1]"
                   name="Lookup Match Output"
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Store.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output]"
+                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output2]"
                   endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Product.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Customer.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output]"
+                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Store.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Product.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup No Match Output]"
                   endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Missing Products.Inputs[Derived Column Input]"
@@ -3346,7 +3440,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count.Outputs[Row Count Output 1]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Row Count Output 11]"
-                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input]"
                   name="Row Count Output 1"
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 1.Outputs[Row Count Output 1]" />
                 <path
@@ -4209,13 +4303,30 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
       </DTS:Variables>
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package.EventHandlers[OnError]\Error_Handler"
+          DTS:refId="Package.EventHandlers[OnError]\FST_ErrorFile_Customers"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{d0c2dbb4-e8ee-49d0-9b62-9a33eae468ee}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FST_ErrorFile_Customers"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="{5A524D21-6905-4D73-9AC3-DC20A6A4935F}"
+              TaskDestinationPath="{46C76625-EACB-4D6D-89C7-6545CDAAF0C0}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL_AuditLog_Fail"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{5C18F779-159A-4187-A958-4BE4A8A368E4}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Error_Handler"
+          DTS:ObjectName="SQL_AuditLog_Fail"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -4467,13 +4578,17 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="146.666666666667,42.6666666666667"
-          Id="Package.EventHandlers[OnError]\Error_Handler"
-          TopLeft="465.11109724972,153.222217655844" />
+          Size="172,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\SQL_AuditLog_Fail"
+          TopLeft="264.329856225341,146.380112467811" />
         <NodeLayout
           Size="196.666666666667,42.6666666666667"
           Id="Package.EventHandlers[OnError]\SQL_FileImportEnd_Fail"
           TopLeft="238.888881769445,232.222215301461" />
+        <NodeLayout
+          Size="204,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\FST_ErrorFile_Customers"
+          TopLeft="238.888881769445,334.888881968128" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
@@ -4511,8 +4626,8 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Conditional Split"
           TopLeft="351.111100647185,213.222215927309" />
         <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination"
+          Size="160,42.6666666666667"
+          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table"
           TopLeft="160.555550770627,610.11109775636" />
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
@@ -4548,6 +4663,42 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           TopLeft="926.666639049849,466.185177996203" />
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output1]"
+          TopLeft="244.666661500931,518.851840324976">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.9999996523057,24.8148109934951"
+              Start="0,0"
+              End="10.9999996523057,17.3148109934951">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.40740549674757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.40740549674757"
+                    Point2="0,12.4074054967476"
+                    Point3="4,12.4074054967476" />
+                  <mssgle:LineSegment
+                    End="6.99999965230575,12.4074054967476" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.99999965230575,12.4074054967476"
+                    Point2="10.9999996523057,12.4074054967476"
+                    Point3="10.9999996523057,16.4074054967476" />
+                  <mssgle:LineSegment
+                    End="10.9999996523057,17.3148109934951" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-42.6913868925971,17.4074054967476,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output]"
           TopLeft="247.666661500931,446.629618135867">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4567,30 +4718,6 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,5.22309026122095,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output]"
-          TopLeft="246.888883905278,371.444434705708">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.5185167634928"
-              Start="0,0"
-              End="0,25.0185167634928">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.0185167634928" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,6.7045708817464,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4852,14 +4979,14 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.5185219788996"
+              EndConnector="0,37.5185219788993"
               Start="0,0"
-              End="0,30.0185219788996">
+              End="0,30.0185219788993">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.0185219788996" />
+                    End="0,30.0185219788993" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4870,18 +4997,30 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Row Count Output 11]"
-          TopLeft="251.777772628599,586.333317985138">
+          TopLeft="255.666661153237,586.333317985138">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,23.7777797712222"
+              EndConnector="-15.1111103826096,23.7777797712223"
               Start="0,0"
-              End="0,16.2777797712222">
+              End="-15.1111103826096,16.2777797712223">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.2777797712222" />
+                    End="0,7.88888988561115" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.88888988561115"
+                    Point2="0,11.8888898856111"
+                    Point3="-4,11.8888898856111" />
+                  <mssgle:LineSegment
+                    End="-11.1111103826096,11.8888898856111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.1111103826096,11.8888898856111"
+                    Point2="-15.1111103826096,11.8888898856111"
+                    Point3="-15.1111103826096,15.8888898856111" />
+                  <mssgle:LineSegment
+                    End="-15.1111103826096,16.2777797712223" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4954,7 +5093,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="9.11027577559164,5,111.6127734375,11.609375"
+              BoundingBox="9.1102757755915,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4978,7 +5117,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="1.77694234291734,5,111.6127734375,11.609375"
+              BoundingBox="1.7769423429175,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5002,43 +5141,31 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0.888053619596711,5,111.6127734375,11.609375"
+              BoundingBox="0.888053619596505,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output2]"
-          TopLeft="244.666661500931,518.851840324976">
+          TopLeft="246.888883905278,371.444434705708">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.9999996523057,24.8148109934951"
+              EndConnector="0,32.5185167634928"
               Start="0,0"
-              End="10.9999996523057,17.3148109934951">
+              End="0,25.0185167634928">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.40740549674757" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.40740549674757"
-                    Point2="0,12.4074054967476"
-                    Point3="4,12.4074054967476" />
-                  <mssgle:LineSegment
-                    End="6.99999965230575,12.4074054967476" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.99999965230575,12.4074054967476"
-                    Point2="10.9999996523057,12.4074054967476"
-                    Point3="10.9999996523057,16.4074054967476" />
-                  <mssgle:LineSegment
-                    End="10.9999996523057,17.3148109934951" />
+                    End="0,25.0185167634928" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-42.6913868925971,17.4074054967476,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,6.7045708817464,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5059,7 +5186,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5077,7 +5204,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Destination">
+    design-time-name="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5152,7 +5279,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
     design-time-name="Package\FELC_Process_SalesFiles\DFT_Stage_Sales">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\FELC_Process_SalesFiles\DFT_Stage_Sales\Sales Staging Table"
@@ -5184,7 +5311,9 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5206,7 +5335,9 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

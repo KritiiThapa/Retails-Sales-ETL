@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package_Stores"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{BFBFD564-1B6B-477E-B800-ED1696AC4E75}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{7A2F8171-35FD-43D2-94D6-5CE591EE3662}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,6 +25,17 @@
         <DTS:ConnectionManager
           DTS:FileUsageType="2"
           DTS:ConnectionString="C:\Users\krthapa\source\repos\SSIS Main Project\Archive" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Error]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{80362A9A-CB6F-49B0-9FDB-9D5CC389B2AE}"
+      DTS:ObjectName="Error">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\krthapa\source\repos\SSIS Main Project\Error" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -98,7 +109,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADLH7aJWgBQoSPuoknQFL8Apr+a7nPB2EBnAgSY2Ru1JAAAAAAOgAAAAAIAACAAAABg7D3yP0t8VKRz9NZK1I42tQUd6vHuoHP7j8p/IkATPyAAAAAlgbgZeVQPeMI9pPp2mMsgFnDLkehpA19OUEq9USMGv0AAAAAstyDYrFplMFZh3oSalrnYarHoZyV8SPKyiuDHbs0SSfdr0PK1aKo2dFAeJxyEKeZ0Z0m+dS3ND+O28Wdo7OTC</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABXYBTmWmzy3ojRoYw0bAkU+A6kwT+u/WIzli0fUdAYZwAAAAAOgAAAAAIAACAAAAD7Uq4XIK/guYSSPakzSQ3zreB4HkQHnc7a7/EDqGFLPiAAAADxoNN6Y+s5K3V3y2sUXqTE8adN/mdzZ7tffIIf3hgkL0AAAACcUbEJi1bkyXkUEX7mvpwrw/zseVDA+UosGHigJPaRSddAimUgFjWgwpm3BU22xO//kofvcDBWH4S4YR9tgKsJ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -469,6 +480,14 @@
                       cachedName="StoreID"
                       externalMetadataColumnId="Package\DFT_Load_Stores\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
                       lineageId="Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[StoreID]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Stores\Rejected Table.Inputs[OLE DB Destination Input].Columns[RawData]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="RawData"
+                      externalMetadataColumnId="Package\DFT_Load_Stores\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
+                      lineageId="Package\DFT_Load_Stores\Validation.Outputs[Derived Column Output].Columns[RawData]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -480,13 +499,13 @@
                       refId="Package\DFT_Load_Stores\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
                       codePage="1252"
                       dataType="str"
-                      length="255"
+                      length="500"
                       name="SourceFile" />
                     <externalMetadataColumn
                       refId="Package\DFT_Load_Stores\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="500"
                       name="TableName" />
                     <externalMetadataColumn
                       refId="Package\DFT_Load_Stores\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
@@ -992,7 +1011,7 @@ LEFT JOIN dbo.DimStore ds ON ds.StoreID = s.StoreID</property>
                       refId="Package\DFT_Load_Stores\Valid Stores Dimention Table.Inputs[OLE DB Destination Input].ExternalColumns[StoreID]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
+                      length="50"
                       name="StoreID" />
                     <externalMetadataColumn
                       refId="Package\DFT_Load_Stores\Valid Stores Dimention Table.Inputs[OLE DB Destination Input].ExternalColumns[StoreName]"
@@ -1077,6 +1096,20 @@ LEFT JOIN dbo.DimStore ds ON ds.StoreID = s.StoreID</property>
                       cachedDataType="i4"
                       cachedName="AlreadyLoaded"
                       lineageId="Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[AlreadyLoaded]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Stores\Validation.Inputs[Derived Column Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      lineageId="Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Stores\Validation.Inputs[Derived Column Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="State"
+                      lineageId="Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[State]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1111,6 +1144,30 @@ LEFT JOIN dbo.DimStore ds ON ds.StoreID = s.StoreID</property>
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">(DT_STR,500,1252)((ISNULL(StoreID) || TRIM(StoreID) == "") ? "Missing StoreID" : (ISNULL(StoreName) || TRIM(StoreName) == "") ? "Missing StoreName" : (RowNum &gt; 1) ? "Duplicate StoreID" : (AlreadyLoaded == 1) ? "Duplicate StoreID - Already Loaded" : "OK")</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_Stores\Validation.Outputs[Derived Column Output].Columns[RawData]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Load_Stores\Validation.Outputs[Derived Column Output].Columns[RawData]"
+                      name="RawData"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,500,1252)("StoreID=" + ([ISNULL](#{Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[StoreID]}) ? "" : #{Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[StoreID]}) + ", Name=" + ([ISNULL](#{Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[StoreName]}) ? "" : #{Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[StoreName]}) + ", City=" + ([ISNULL](#{Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[City]}) ? "" : #{Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[City]}) + ", State=" + ([ISNULL](#{Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[State]}) ? "" : #{Package\DFT_Load_Stores\Staging Stores Table.Outputs[OLE DB Source Output].Columns[State]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,500,1252)("StoreID=" + (ISNULL(StoreID) ? "" : StoreID) + ", Name=" + (ISNULL(StoreName) ? "" : StoreName) + ", City=" + (ISNULL(City) ? "" : City) + ", State=" + (ISNULL(State) ? "" : State))</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1825,6 +1882,99 @@ LEFT JOIN dbo.DimStore ds ON ds.StoreID = s.StoreID</property>
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\DFT_Load_Stores" />
   </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{1E170904-B7AD-45A9-B702-CCB152254C3A}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{25299935-D426-473E-8847-3DE76EB75AF4}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\FST_ErrorFile_Customers"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{90096202-d4fd-410a-a797-717f24fee4ec}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FST_ErrorFile_Customers"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="{BDF6C8CF-87EC-4683-ADE1-10C6AB8EBFF7}"
+              TaskDestinationPath="{80362A9A-CB6F-49B0-9FDB-9D5CC389B2AE}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL_AuditLog_Fail"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{f9ef709d-f1d5-4e58-9fc4-09274fdcc106}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_AuditLog_Fail"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{89213693-A170-4D9B-BECB-11E9DA39D08E}"
+              SQLTask:SqlStatementSource="UPDATE dbo.AuditLog&#xA;SET Status = 'Failed',&#xA;    EndTime = GETDATE(),&#xA;    ErrorMessage = ?&#xA;WHERE AuditID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::AuditID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL_FileImportEnd_Fail"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ab011b8a-6172-4e05-8bec-0a0267de9b43}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_FileImportEnd_Fail"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{89213693-A170-4D9B-BECB-11E9DA39D08E}"
+              SQLTask:SqlStatementSource="   UPDATE dbo.FileImports&#xA;   SET FileImportStatus = 'Failed', UpdatedDate = GETDATE()&#xA;   WHERE FileImportID = ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::FileImportID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -2320,6 +2470,32 @@ LEFT JOIN dbo.DimStore ds ON ds.StoreID = s.StoreID</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_Stores\Rejected Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_Stores\Valid Stores Dimention Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DFT_Stage_Stores">
     <LayoutInfo>
@@ -2412,5 +2588,25 @@ LEFT JOIN dbo.DimStore ds ON ds.StoreID = s.StoreID</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\SQL_AuditLog_Fail"
+          TopLeft="133.22222004003,50.0000002980232" />
+        <NodeLayout
+          Size="196.666666666667,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\SQL_FileImportEnd_Fail"
+          TopLeft="87.999999165535,137.999997675419" />
+        <NodeLayout
+          Size="204,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\FST_ErrorFile_Customers"
+          TopLeft="60,241.666664312284" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

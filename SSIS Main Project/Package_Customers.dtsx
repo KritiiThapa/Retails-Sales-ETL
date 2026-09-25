@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package_Customers"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{EC0BB9CC-1B78-4EAB-BB47-EF7B142F174F}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{F1354D57-FE78-4B01-AEC1-76B6A9C57949}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,6 +35,17 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="C:\Users\krthapa\source\repos\SSIS Main Project\Input\Customers.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Error]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{372AF181-B2A7-42AB-97EA-9C54DDF8BDDB}"
+      DTS:ObjectName="Error">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\krthapa\source\repos\SSIS Main Project\Error" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -117,7 +128,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABfaiVcaPiRRSQf3vd/2iVk5cOCi3T6cnjCKuTXFyfcFwAAAAAOgAAAAAIAACAAAAAYYaVtKhLbBNufpEwQvADsBbBO2UgwDQsBSszI9fxVWSAAAADjmNwZYj99wjadyMpz44pqmtABzK/rK2CPfhLwmrUpcUAAAAAjp9fU3oLRmY+KhI5FZuc4KdvY1jVJEWmTKDeXo0eeWmqfsc2QVRUxJauHMWQb118Dyos7wMEuL+qNOLBFPnZu</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAgFOMzMlh85J514QNmS4NtNi2ElSHtj6XTnkM4nDc2OAAAAAAOgAAAAAIAACAAAAA6z87b6nRZBPqXXxNxxZpGd2UW6PBGAlJEATUuOhHRkyAAAACHRN8Ae/cvcQ8IQxI4HmStD7tbNhpU3SyjwV+GYIO5bEAAAACakfrVRWiBM78Q9HwT7Yin+EXO7xJ1bPtRb5oUCI9kXQvFlLBBgrKOpTWNFiEVlzj0AXv6uk5GZq123aY1WtWl</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -276,6 +287,191 @@
               </outputs>
             </component>
             <component
+              refId="Package\DFT_Load_Customers\Dimention Customer Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dimention Customer Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_Customers\Dimention Customer Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].Columns[CustomerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CustomerName"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[CustomerName]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[State]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Customers\Dimention Customer Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Customers\Dimention Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Customers\Dimention Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Customers\Dimention Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT_Load_Customers\Extract Source File and Source Table"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -375,196 +571,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_Load_Customers\OLE DB Destination"
+              refId="Package\DFT_Load_Customers\Rejected Table"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimCustomer]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT_Load_Customers\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
-                  connectionManagerRefId="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="CustomerID"
-                      externalMetadataColumnId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
-                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[CustomerID]" />
-                    <inputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerName]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="CustomerName"
-                      externalMetadataColumnId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
-                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[CustomerName]" />
-                    <inputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="Email"
-                      externalMetadataColumnId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
-                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[Email]" />
-                    <inputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="City"
-                      externalMetadataColumnId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
-                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[City]" />
-                    <inputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="State"
-                      externalMetadataColumnId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
-                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[State]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
-                      dataType="i4"
-                      name="CustomerKey" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="CustomerID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="CustomerName" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="Email" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="City" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="State" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
-                      dataType="dbTimeStamp"
-                      name="CreatedDate" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
-                      dataType="dbTimeStamp"
-                      name="ModifiedDate" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT_Load_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT_Load_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT_Load_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT_Load_Customers\OLE DB Destination 1"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination 1"
+              name="Rejected Table"
               usesDispositions="true"
               version="4">
               <properties>
@@ -617,7 +628,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_Load_Customers\OLE DB Destination 1.Connections[OleDbConnection]"
+                  refId="Package\DFT_Load_Customers\Rejected Table.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
                   connectionManagerRefId="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -625,80 +636,88 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[SourceFile]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].Columns[SourceFile]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="500"
                       cachedName="SourceFile"
-                      externalMetadataColumnId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
                       lineageId="Package\DFT_Load_Customers\Extract Source File and Source Table.Outputs[Derived Column Output].Columns[SourceFile]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[SourceTable]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].Columns[SourceTable]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="500"
                       cachedName="SourceTable"
-                      externalMetadataColumnId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
                       lineageId="Package\DFT_Load_Customers\Extract Source File and Source Table.Outputs[Derived Column Output].Columns[SourceTable]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ValidationError]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].Columns[ValidationError]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="500"
                       cachedName="ValidationError"
-                      externalMetadataColumnId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]"
                       lineageId="Package\DFT_Load_Customers\Validation.Outputs[Derived Column Output].Columns[ValidationError]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].Columns[CustomerID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="CustomerID"
-                      externalMetadataColumnId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
                       lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].Columns[RawData]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="RawData"
+                      externalMetadataColumnId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
+                      lineageId="Package\DFT_Load_Customers\Validation.Outputs[Derived Column Output].Columns[RawData]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[RejectID]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RejectID]"
                       dataType="i4"
                       name="RejectID" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
                       codePage="1252"
                       dataType="str"
-                      length="255"
+                      length="500"
                       name="SourceFile" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="500"
                       name="TableName" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
                       codePage="1252"
                       dataType="text"
                       name="RawData" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]"
                       codePage="1252"
                       dataType="str"
                       length="500"
                       name="ErrorReason" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDate]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDate]"
                       dataType="dbTimeStamp"
                       name="ErrorDate" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
                       codePage="1252"
                       dataType="str"
                       length="100"
@@ -708,22 +727,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_Load_Customers\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DFT_Load_Customers\Rejected Table.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Load_Customers\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Load_Customers\Rejected Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Load_Customers\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Load_Customers\Rejected Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Load_Customers\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Load_Customers\Rejected Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1140,6 +1159,20 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
                       cachedDataType="i4"
                       cachedName="AlreadyLoaded"
                       lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[AlreadyLoaded]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Customers\Validation.Inputs[Derived Column Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_Customers\Validation.Inputs[Derived Column Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="State"
+                      lineageId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[State]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1174,6 +1207,30 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">(DT_STR,500,1252)((ISNULL(CustomerID) || TRIM(CustomerID) == "") ? "Missing CustomerID" : (ISNULL(CustomerName) || TRIM(CustomerName) == "") ? "Missing CustomerName" : (FINDSTRING(Email,"@",1) == 0) ? "Invalid Email" : (RowNum &gt; 1) ? "Duplicate CustomerID" : (AlreadyLoaded == 1) ? "Duplicate CustomerID - Already Loaded" : "OK")</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_Customers\Validation.Outputs[Derived Column Output].Columns[RawData]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Load_Customers\Validation.Outputs[Derived Column Output].Columns[RawData]"
+                      name="RawData"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,500,1252)("CustomerID=" + ([ISNULL](#{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[CustomerID]}) ? "" : #{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[CustomerID]}) + ", Name=" + ([ISNULL](#{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[CustomerName]}) ? "" : #{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[CustomerName]}) + ", Email=" + ([ISNULL](#{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[Email]}) ? "" : #{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[Email]}) + ", City=" + ([ISNULL](#{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[City]}) ? "" : #{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[City]}) + ", State=" + ([ISNULL](#{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[State]}) ? "" : #{Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output].Columns[State]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,500,1252)("CustomerID=" + (ISNULL(CustomerID) ? "" : CustomerID) + ", Name=" + (ISNULL(CustomerName) ? "" : CustomerName) + ", Email=" + (ISNULL(Email) ? "" : Email) + ", City=" + (ISNULL(City) ? "" : City) + ", State=" + (ISNULL(State) ? "" : State))</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1213,7 +1270,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
               startId="Package\DFT_Load_Customers\Validation.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_Load_Customers.Paths[Derived Column Output1]"
-              endId="Package\DFT_Load_Customers\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT_Load_Customers\Rejected Table.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
               startId="Package\DFT_Load_Customers\Extract Source File and Source Table.Outputs[Derived Column Output]" />
             <path
@@ -1228,7 +1285,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
               startId="Package\DFT_Load_Customers\Staging Customer Data.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\DFT_Load_Customers.Paths[Row Count Output 1]"
-              endId="Package\DFT_Load_Customers\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT_Load_Customers\Dimention Customer Table.Inputs[OLE DB Destination Input]"
               name="Row Count Output 1"
               startId="Package\DFT_Load_Customers\Row Count 1.Outputs[Row Count Output 1]" />
             <path
@@ -1752,6 +1809,24 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{D64EE6A6-D02A-4338-AAF8-7F4FD2CDDFB3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3E5715C8-C9EC-46A1-82C7-4996EB6CD955}"
+          SQLTask:SqlStatementSource="select * from bdalad;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\FST_Move_Archive_Customers"
       DTS:CreationName="Microsoft.FileSystemTask"
       DTS:Description="File System Task"
@@ -1760,7 +1835,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="FST_Move_Archive_Customers"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <FileSystemData
@@ -1778,7 +1853,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="SQL_AuditEnd_Success"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1820,7 +1895,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="SQL_AuditStart_Customers"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1842,7 +1917,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="SQL_FileImportEnd_Success_Customers"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1866,7 +1941,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="SQL_FileImportStart_Customers"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1890,12 +1965,12 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       DTS:ObjectName="Constraint"
       DTS:To="Package\DFT_Load_Customers" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{c4b9e072-ecec-4ffb-869e-72acac8a868c}"
+      DTS:DTSID="{66BD3B40-CF99-428B-A889-4E72B198E649}"
       DTS:From="Package\SQL_FileImportStart_Customers"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 11"
+      DTS:ObjectName="Constraint 1"
       DTS:To="Package\DFT_Stage_Customers" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 15]"
@@ -1930,6 +2005,99 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\FST_Move_Archive_Customers" />
   </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{F196B5AA-E3A6-4344-9042-1123AF788498}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{905375D4-6372-43CA-BE1B-BBC9BDCDC1DE}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\FST_ErrorFile_Customers"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{0834E1B0-1B06-4C8E-A588-BFABF90B7F0F}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FST_ErrorFile_Customers"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="{46035B73-1FFB-4B18-B094-FA1183D14C70}"
+              TaskDestinationPath="{372AF181-B2A7-42AB-97EA-9C54DDF8BDDB}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL_AuditLog_Fail"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{48fceecf-3240-4781-bb26-0dac8a01b5dd}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_AuditLog_Fail"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3E5715C8-C9EC-46A1-82C7-4996EB6CD955}"
+              SQLTask:SqlStatementSource="UPDATE dbo.AuditLog&#xA;SET Status = 'Failed',&#xA;    EndTime = GETDATE(),&#xA;    ErrorMessage = ?&#xA;WHERE AuditID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::AuditID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL_FileImportEnd_Fail"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2d103918-005e-4e1e-8659-ebe55f049bc1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_FileImportEnd_Fail"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3E5715C8-C9EC-46A1-82C7-4996EB6CD955}"
+              SQLTask:SqlStatementSource="   UPDATE dbo.FileImports&#xA;   SET FileImportStatus = 'Failed', UpdatedDate = GETDATE()&#xA;   WHERE FileImportID = ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::FileImportID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1984,28 +2152,6 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,25.5476170085129" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="192.886903589769,173.969924892879">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.9573930193655"
-              Start="0,0"
-              End="0,23.4573930193655">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.4573930193655" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2102,6 +2248,32 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\Execute SQL Task"
+          TopLeft="445.833313403031,140.263156354675" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="192.886903589769,173.969924892879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.9573930193664"
+              Start="0,0"
+              End="0,23.4573930193664">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4573930193664" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2127,16 +2299,16 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
           Id="Package\DFT_Load_Customers\Staging Customer Data"
           TopLeft="206.892854614449,6.00000131130219" />
         <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\DFT_Load_Customers\OLE DB Destination"
+          Size="206.666666666667,42.6666666666667"
+          Id="Package\DFT_Load_Customers\Dimention Customer Table"
           TopLeft="61.9999999403954,410.601502987345" />
         <NodeLayout
           Size="141.333333333334,42.6666666666667"
           Id="Package\DFT_Load_Customers\Row Count 2"
           TopLeft="384.999988526106,337.333326419195" />
         <NodeLayout
-          Size="184,42.6666666666667"
-          Id="Package\DFT_Load_Customers\OLE DB Destination 1"
+          Size="152,42.6666666666667"
+          Id="Package\DFT_Load_Customers\Rejected Table"
           TopLeft="363.535700463292,493.125309783458" />
         <NodeLayout
           Size="141.333333333334,42.6666666666667"
@@ -2206,18 +2378,30 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Load_Customers.Paths[Derived Column Output1]"
-          TopLeft="454.142843911691,458.749371208482">
+          TopLeft="452.749987360091,458.749371208482">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.3759385749762"
+              EndConnector="-13.214286896799,34.3759385749763"
               Start="0,0"
-              End="0,26.8759385749762">
+              End="-13.214286896799,26.8759385749763">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.8759385749762" />
+                    End="0,13.1879692874882" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.1879692874882"
+                    Point2="0,17.1879692874882"
+                    Point3="-4,17.1879692874882" />
+                  <mssgle:LineSegment
+                    End="-9.21428689679897,17.1879692874882" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.21428689679897,17.1879692874882"
+                    Point2="-13.214286896799,17.1879692874882"
+                    Point3="-13.214286896799,21.1879692874882" />
+                  <mssgle:LineSegment
+                    End="-13.214286896799,26.8759385749763" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2285,6 +2469,28 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\DFT_Load_Customers.Paths[Row Count Output 12]"
+          TopLeft="306.863089920776,136.16666529576">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.8333322306471"
+              Start="0,0"
+              End="0,29.3333322306471">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.3333322306471" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\DFT_Load_Customers.Paths[Row Count Output 11]"
           TopLeft="454.208321276432,379.999993085861">
           <EdgeLayout.Curve>
@@ -2308,40 +2514,30 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Load_Customers.Paths[Row Count Output 1]"
-          TopLeft="149.999998778105,373.666658888261">
+          TopLeft="150.666664282481,373.666658888261">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.9348440990844"
+              EndConnector="14.6666689912478,36.9348440990843"
               Start="0,0"
-              End="0,29.4348440990844">
+              End="14.6666689912478,29.4348440990843">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.4348440990844" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Load_Customers.Paths[Row Count Output 12]"
-          TopLeft="306.863089920776,136.16666529576">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.8333322306471"
-              Start="0,0"
-              End="0,29.3333322306471">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
+                    End="0,14.4674220495421" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.4674220495421"
+                    Point2="0,18.4674220495421"
+                    Point3="4,18.4674220495421" />
                   <mssgle:LineSegment
-                    End="0,29.3333322306471" />
+                    End="10.6666689912478,18.4674220495421" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.6666689912478,18.4674220495421"
+                    Point2="14.6666689912478,18.4674220495421"
+                    Point3="14.6666689912478,22.4674220495421" />
+                  <mssgle:LineSegment
+                    End="14.6666689912478,29.4348440990843" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2367,7 +2563,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Load_Customers\OLE DB Destination">
+    design-time-name="Package\DFT_Load_Customers\Dimention Customer Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2380,7 +2576,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Load_Customers\OLE DB Destination 1">
+    design-time-name="Package\DFT_Load_Customers\Rejected Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2396,7 +2592,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
     design-time-name="Package\DFT_Stage_Customers">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="193.333333333334,42.6666666666667"
           Id="Package\DFT_Stage_Customers\Staging customers table"
@@ -2428,7 +2624,9 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2462,7 +2660,9 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2481,5 +2681,25 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\SQL_AuditLog_Fail"
+          TopLeft="301.22221503324,76.9999994933605" />
+        <NodeLayout
+          Size="196.666666666667,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\SQL_FileImportEnd_Fail"
+          TopLeft="299.999992847443,177.999996483326" />
+        <NodeLayout
+          Size="204,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\FST_ErrorFile_Customers"
+          TopLeft="698.999979168177,225.999993264675" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
