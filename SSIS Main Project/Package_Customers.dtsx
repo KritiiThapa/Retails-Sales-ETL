@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package_Customers"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{F1354D57-FE78-4B01-AEC1-76B6A9C57949}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{34DA4C2F-C985-4A69-BC03-509144989B43}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -128,7 +128,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAgFOMzMlh85J514QNmS4NtNi2ElSHtj6XTnkM4nDc2OAAAAAAOgAAAAAIAACAAAAA6z87b6nRZBPqXXxNxxZpGd2UW6PBGAlJEATUuOhHRkyAAAACHRN8Ae/cvcQ8IQxI4HmStD7tbNhpU3SyjwV+GYIO5bEAAAACakfrVRWiBM78Q9HwT7Yin+EXO7xJ1bPtRb5oUCI9kXQvFlLBBgrKOpTWNFiEVlzj0AXv6uk5GZq123aY1WtWl</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAXMY7Ucmc9aJ9IUEdRDwVf6IUsvrKk7CL0kv/5GbJAvwAAAAAOgAAAAAIAACAAAABY3GbI1lSKOlxKlOjaSahs66XS+iIOJN3bN7F/GxOufCAAAABCL/ei6GtwaSwqwJRKfkwwBMHxe4aJ7NLghZFzstq/2EAAAADXW+39L+A4mF30Yl518itbJQwx8c2THukhIisc+cWMhGJPm0iQNWwdZrNnVwbG7UZh2Qi6fXNREi+TTjtnosBX</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1900,7 +1900,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3E5715C8-C9EC-46A1-82C7-4996EB6CD955}"
-          SQLTask:SqlStatementSource="INSERT INTO dbo.AuditLog (PackageName, SourceFile, StartTime, Status)&#xA;OUTPUT INSERTED.AuditID&#xA;VALUES ('SSISFinal', 'Customers.csv', GETDATE(), 'Running');"
+          SQLTask:SqlStatementSource="INSERT INTO dbo.AuditLog (PackageName, SourceFile, StartTime, Status)&#xA;OUTPUT INSERTED.AuditID&#xA;VALUES ('Package_Customer', 'Customers.csv', GETDATE(), 'Running');"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -2592,7 +2592,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
     design-time-name="Package\DFT_Stage_Customers">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="193.333333333334,42.6666666666667"
           Id="Package\DFT_Stage_Customers\Staging customers table"
@@ -2624,9 +2624,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2660,9 +2658,7 @@ LEFT JOIN dbo.DimCustomer dc ON dc.CustomerID = s.CustomerID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

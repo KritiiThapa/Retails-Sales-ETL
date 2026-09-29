@@ -74,7 +74,7 @@ GO
 IF OBJECT_ID('dbo.DimCustomer', 'U') IS NOT NULL DROP TABLE dbo.DimCustomer;
 CREATE TABLE dbo.DimCustomer (
     CustomerKey     INT IDENTITY(1,1) PRIMARY KEY,
-    CustomerID      VARCHAR(20)   NOT NULL,
+    CustomerID      VARCHAR(50)   NOT NULL,
     CustomerName    VARCHAR(200)  NOT NULL,
     Email           VARCHAR(200)  NULL,
     City            VARCHAR(100)  NULL,
@@ -88,7 +88,7 @@ GO
 IF OBJECT_ID('dbo.DimProduct', 'U') IS NOT NULL DROP TABLE dbo.DimProduct;
 CREATE TABLE dbo.DimProduct (
     ProductKey      INT IDENTITY(1,1) PRIMARY KEY,
-    ProductID       VARCHAR(20)   NOT NULL,
+    ProductID       VARCHAR(50)   NOT NULL,
     ProductName     VARCHAR(200)  NOT NULL,
     Category        VARCHAR(100)  NULL,
     Price           DECIMAL(18,2) NOT NULL,
@@ -101,7 +101,7 @@ GO
 IF OBJECT_ID('dbo.DimStore', 'U') IS NOT NULL DROP TABLE dbo.DimStore;
 CREATE TABLE dbo.DimStore (
     StoreKey        INT IDENTITY(1,1) PRIMARY KEY,
-    StoreID         VARCHAR(20)   NOT NULL,
+    StoreID         VARCHAR(50)   NOT NULL,
     StoreName       VARCHAR(200)  NOT NULL,
     City            VARCHAR(100)  NULL,
     State           VARCHAR(100)  NULL,
@@ -116,7 +116,7 @@ GO
 IF OBJECT_ID('dbo.FactSales', 'U') IS NOT NULL DROP TABLE dbo.FactSales;
 CREATE TABLE dbo.FactSales (
     SalesKey        BIGINT IDENTITY(1,1) PRIMARY KEY,
-    SaleID          VARCHAR(20)   NOT NULL,
+    SaleID          VARCHAR(50)   NOT NULL,
     SaleDate        DATE          NOT NULL,
     CustomerKey     INT           NOT NULL,
     ProductKey      INT           NOT NULL,
@@ -151,8 +151,8 @@ GO
 IF OBJECT_ID('dbo.RejectedRecords', 'U') IS NOT NULL DROP TABLE dbo.RejectedRecords;
 CREATE TABLE dbo.RejectedRecords (
     RejectID        INT IDENTITY(1,1) PRIMARY KEY,
-    SourceFile      VARCHAR(255) NULL,
-    TableName       VARCHAR(50)  NULL,   -- which staging table this row came from
+    SourceFile      VARCHAR(500) NULL,
+    TableName       VARCHAR(500)  NULL,   -- which staging table this row came from
     RecordKey     VARCHAR(100) NULL,   -- e.g. the SaleID, CustomerID, etc. that failed
     RawData         VARCHAR(MAX) NULL,   -- the full original row, for support to inspect
     ErrorReason     VARCHAR(500) NOT NULL,
@@ -175,12 +175,19 @@ CREATE TABLE dbo.AuditLog (
 );
 GO
 
+   
+   SELECT * from StgCustomer;
+   select * from DimCustomer;
 
    SELECT * from StgProduct;
    select * from DimProduct;
 
    select * from StgStore;
    select * from DimStore;
+
+   
+   SELECT * from StgSales;
+   select * from FactSales;
 
 
    SELECT * from RejectedRecords;

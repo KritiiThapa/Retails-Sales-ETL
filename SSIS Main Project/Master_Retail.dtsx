@@ -6,15 +6,24 @@
   DTS:CreatorComputerName="ICS-LT-1W6ZDK3"
   DTS:CreatorName="INFICS\krthapa"
   DTS:DTSID="{B6EFE915-84BE-4685-86DF-C6A6553F9971}"
+  DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{B8BB45DB-9C4B-4D8E-B260-FC42663C30B6}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{BA35E3A4-DA0A-45E0-86C8-8A3C77D9CCDC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="trainingssis"
+      DTS:ConfigurationType="5"
+      DTS:CreationName=""
+      DTS:DTSID="{49DC2747-4016-4618-A7FF-E913D7C88766}"
+      DTS:ObjectName="xmlconfig" />
+  </DTS:Configurations>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -133,13 +142,13 @@
           Id="Package\EPT_Products"
           TopLeft="175.624992148951,131.368419610232" />
         <NodeLayout
-          Size="137.333333333334,42.6666666666667"
-          Id="Package\EPT_Stores"
-          TopLeft="181.874991869554,208.684208235004" />
-        <NodeLayout
           Size="133.333333333334,42.6666666666667"
           Id="Package\EPT_Sales"
           TopLeft="187.499991618097,287.368417897383" />
+        <NodeLayout
+          Size="137.333333333334,42.6666666666667"
+          Id="Package\EPT_Stores"
+          TopLeft="181.874991869554,208.684208235004" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="247.895825663892,85.0877188324709">

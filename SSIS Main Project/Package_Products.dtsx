@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package_Products"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{1B01EE8A-56F8-4A0C-AE55-CA95E18F7D01}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{36EE67D9-4CC6-48AE-A0C9-8C16B5E06013}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -108,7 +108,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAgtOR+tMFyiVzYwUFJqJQU8O6r35n+uZsfVGl48Te8twAAAAAOgAAAAAIAACAAAABEVcoT72O6il4jt2+/FXzXdGWnK+C4Q+jES8uCL/o2SSAAAAChjQudR6tjTjT1L3yEsxWcvvlU/nZPZZiPfeXo3ZZv90AAAADXmGmK3RGfMyO1O5FRPrYSz0PmWVoFMo6EiO/5GhIqpP/cRffV2qLHhb5kx6IJImpqB8nW1BoDtRZCeG7vJORV</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAIqqtOD8r2l+eNRdlBNYI1lsEhxxqySy1q9IfcS4kNpQAAAAAOgAAAAAIAACAAAAAcxRgeSMjYzEMrN3LiG8Po7jiH0pAL1rrrrqyYHeFrpSAAAAAqAv8IN9f+1BMYA89ENvi+OWJRhEeLXuVHaGrIqbIqBEAAAAC1ej4sbmrFnDDP7hxwe0icu32YTvmUNGLnLyYf10eH/oZKJjPUbm0fUARdig5hG5sflTuj9EczLO5q4zEkB2mm</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -209,6 +209,105 @@
           version="1">
           <components>
             <component
+              refId="Package\DFT_Load_Products\Added SourceFile and SourceTable"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Added SourceFile and SourceTable"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceTable]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceTable]"
+                      name="SourceTable"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,500,1252)"StgProduct"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,500,1252)"StgProduct"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceFile]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceFile]"
+                      name="SourceFile"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,500,1252)"Products.csv"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,500,1252)"Products.csv"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT_Load_Products\Conditional Split"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -300,110 +399,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_Load_Products\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT_Load_Products\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\DFT_Load_Products\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Output].Columns[SourceTable]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="500"
-                      lineageId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Output].Columns[SourceTable]"
-                      name="SourceTable"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_STR,500,1252)"StgProduct"</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,500,1252)"StgProduct"</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Output].Columns[SourceFile]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="500"
-                      lineageId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Output].Columns[SourceFile]"
-                      name="SourceFile"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_STR,500,1252)"Products.csv"</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,500,1252)"Products.csv"</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT_Load_Products\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT_Load_Products\OLE DB Destination"
+              refId="Package\DFT_Load_Products\Products Dimension Table"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="Products Dimension Table"
               usesDispositions="true"
               version="4">
               <properties>
@@ -456,7 +456,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_Load_Products\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\DFT_Load_Products\Products Dimension Table.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
                   connectionManagerRefId="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -464,81 +464,81 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductName]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].Columns[ProductName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="200"
                       cachedName="ProductName"
-                      externalMetadataColumnId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      externalMetadataColumnId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
                       lineageId="Package\DFT_Load_Products\Staging Products Table.Outputs[OLE DB Source Output].Columns[ProductName]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Category]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].Columns[Category]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="Category"
-                      externalMetadataColumnId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
+                      externalMetadataColumnId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
                       lineageId="Package\DFT_Load_Products\Staging Products Table.Outputs[OLE DB Source Output].Columns[Category]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Price]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].Columns[Price]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Price"
-                      externalMetadataColumnId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      externalMetadataColumnId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
                       lineageId="Package\DFT_Load_Products\Staging Products Table.Outputs[OLE DB Source Output].Columns[Price]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].Columns[ProductID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="ProductID"
-                      externalMetadataColumnId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      externalMetadataColumnId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
                       lineageId="Package\DFT_Load_Products\Staging Products Table.Outputs[OLE DB Source Output].Columns[ProductID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
                       dataType="i4"
                       name="ProductKey" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="ProductID" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="ProductName" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="Category" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
                       dataType="numeric"
                       name="Price"
                       precision="18"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       dataType="dbTimeStamp"
                       name="CreatedDate" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
                       dataType="dbTimeStamp"
                       name="ModifiedDate" />
                   </externalMetadataColumns>
@@ -546,22 +546,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_Load_Products\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DFT_Load_Products\Products Dimension Table.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Load_Products\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Load_Products\Products Dimension Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Load_Products\Products Dimension Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Load_Products\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Load_Products\Products Dimension Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -570,11 +570,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_Load_Products\OLE DB Destination 1"
+              refId="Package\DFT_Load_Products\Rejected Records"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination 1"
+              name="Rejected Records"
               usesDispositions="true"
               version="4">
               <properties>
@@ -627,7 +627,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_Load_Products\OLE DB Destination 1.Connections[OleDbConnection]"
+                  refId="Package\DFT_Load_Products\Rejected Records.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
                   connectionManagerRefId="Package.ConnectionManagers[ICS-LT-1W6ZDK3\SQLExpress.RetailDW.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -635,90 +635,90 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].Columns[ProductID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="ProductID"
-                      externalMetadataColumnId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
+                      externalMetadataColumnId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
                       lineageId="Package\DFT_Load_Products\Staging Products Table.Outputs[OLE DB Source Output].Columns[ProductID]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ValidationError]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].Columns[ValidationError]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="500"
                       cachedName="ValidationError"
-                      externalMetadataColumnId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]"
+                      externalMetadataColumnId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]"
                       lineageId="Package\DFT_Load_Products\Validation.Outputs[Derived Column Output].Columns[ValidationError]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[SourceTable]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].Columns[SourceTable]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="500"
                       cachedName="SourceTable"
-                      externalMetadataColumnId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
-                      lineageId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Output].Columns[SourceTable]" />
+                      externalMetadataColumnId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
+                      lineageId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceTable]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[SourceFileName]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].Columns[SourceFileName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="SourceFileName"
-                      externalMetadataColumnId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
+                      externalMetadataColumnId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
                       lineageId="Package\DFT_Load_Products\Staging Products Table.Outputs[OLE DB Source Output].Columns[SourceFileName]" />
                     <inputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[RawData]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].Columns[RawData]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="500"
                       cachedName="RawData"
-                      externalMetadataColumnId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
+                      externalMetadataColumnId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
                       lineageId="Package\DFT_Load_Products\Validation.Outputs[Derived Column Output].Columns[RawData]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[RejectID]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[RejectID]"
                       dataType="i4"
                       name="RejectID" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
                       codePage="1252"
                       dataType="str"
                       length="500"
                       name="SourceFile" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
                       codePage="1252"
                       dataType="str"
                       length="500"
                       name="TableName" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[RecordKey]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="RecordKey" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
                       codePage="1252"
                       dataType="text"
                       name="RawData" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[ErrorReason]"
                       codePage="1252"
                       dataType="str"
                       length="500"
                       name="ErrorReason" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDate]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDate]"
                       dataType="dbTimeStamp"
                       name="ErrorDate" />
                   </externalMetadataColumns>
@@ -726,22 +726,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_Load_Products\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DFT_Load_Products\Rejected Records.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Load_Products\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Load_Products\Rejected Records.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Load_Products\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Load_Products\Rejected Records.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Load_Products\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Load_Products\Rejected Records.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1237,9 +1237,9 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
               startId="Package\DFT_Load_Products\Validation.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_Load_Products.Paths[Derived Column Output1]"
-              endId="Package\DFT_Load_Products\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT_Load_Products\Rejected Records.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
-              startId="Package\DFT_Load_Products\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_Load_Products.Paths[Invalid Rows]"
               endId="Package\DFT_Load_Products\Row Count 2.Inputs[Row Count Input 1]"
@@ -1257,12 +1257,12 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
               startId="Package\DFT_Load_Products\Row Count.Outputs[Row Count Output 1]" />
             <path
               refId="Package\DFT_Load_Products.Paths[Row Count Output 11]"
-              endId="Package\DFT_Load_Products\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\DFT_Load_Products\Added SourceFile and SourceTable.Inputs[Derived Column Input]"
               name="Row Count Output 1"
               startId="Package\DFT_Load_Products\Row Count 2.Outputs[Row Count Output 1]" />
             <path
               refId="Package\DFT_Load_Products.Paths[Row Count Output 12]"
-              endId="Package\DFT_Load_Products\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT_Load_Products\Products Dimension Table.Inputs[OLE DB Destination Input]"
               name="Row Count Output 1"
               startId="Package\DFT_Load_Products\Row Count 1.Outputs[Row Count Output 1]" />
             <path
@@ -1801,7 +1801,7 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{89213693-A170-4D9B-BECB-11E9DA39D08E}"
-          SQLTask:SqlStatementSource="INSERT INTO dbo.AuditLog (PackageName, SourceFile, StartTime, Status)&#xA;OUTPUT INSERTED.AuditID&#xA;VALUES ('SSISFinal', 'Products.csv', GETDATE(), 'Running');"
+          SQLTask:SqlStatementSource="INSERT INTO dbo.AuditLog (PackageName, SourceFile, StartTime, Status)&#xA;OUTPUT INSERTED.AuditID&#xA;VALUES ('Package_Products', 'Products.csv', GETDATE(), 'Running');"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -2208,16 +2208,16 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
           Id="Package\DFT_Load_Products\Staging Products Table"
           TopLeft="295.999991178513,15.0000000298023" />
         <NodeLayout
-          Size="156,42.6666666666667"
-          Id="Package\DFT_Load_Products\Derived Column"
+          Size="248,42.6666666666667"
+          Id="Package\DFT_Load_Products\Added SourceFile and SourceTable"
           TopLeft="544.999983757736,450.999987512827" />
         <NodeLayout
           Size="126.666666666667,42.6666666666667"
           Id="Package\DFT_Load_Products\Validation"
           TopLeft="330.999990135431,172.999995797873" />
         <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\DFT_Load_Products\OLE DB Destination"
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\DFT_Load_Products\Products Dimension Table"
           TopLeft="142.999995738268,405.999988853932" />
         <NodeLayout
           Size="132,42.6666666666667"
@@ -2228,8 +2228,8 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
           Id="Package\DFT_Load_Products\Row Count 2"
           TopLeft="522.999984413386,343.666660020749" />
         <NodeLayout
-          Size="184,42.6666666666667"
-          Id="Package\DFT_Load_Products\OLE DB Destination 1"
+          Size="164,42.6666666666667"
+          Id="Package\DFT_Load_Products\Rejected Records"
           TopLeft="525.999984323979,540.333320071301" />
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
@@ -2277,30 +2277,30 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Load_Products.Paths[Row Count Output 12]"
-          TopLeft="280.666660408179,361.333326299985">
+          TopLeft="280.66666040818,361.333326299986">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-50.3333313365776,44.6666625539467"
+              EndConnector="-34.999998003245,44.6666625539463"
               Start="0,0"
-              End="-50.3333313365776,37.1666625539467">
+              End="-34.999998003245,37.1666625539463">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.3333312769733" />
+                    End="0,18.3333312769732" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.3333312769733"
-                    Point2="0,22.3333312769733"
-                    Point3="-4,22.3333312769733" />
+                    Point1="0,18.3333312769732"
+                    Point2="0,22.3333312769732"
+                    Point3="-4,22.3333312769732" />
                   <mssgle:LineSegment
-                    End="-46.3333313365776,22.3333312769733" />
+                    End="-30.999998003245,22.3333312769732" />
                   <mssgle:CubicBezierSegment
-                    Point1="-46.3333313365776,22.3333312769733"
-                    Point2="-50.3333313365776,22.3333312769733"
-                    Point3="-50.3333313365776,26.3333312769733" />
+                    Point1="-30.999998003245,22.3333312769732"
+                    Point2="-34.999998003245,22.3333312769732"
+                    Point3="-34.999998003245,26.3333312769732" />
                   <mssgle:LineSegment
-                    End="-50.3333313365776,37.1666625539467" />
+                    End="-34.999998003245,37.1666625539463" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2311,30 +2311,30 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Load_Products.Paths[Row Count Output 11]"
-          TopLeft="593.666651080052,386.333326687416">
+          TopLeft="593.666651080053,386.333326687416">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="29.3333326776831,64.6666608254116"
+              EndConnector="75.3333326776834,64.6666608254113"
               Start="0,0"
-              End="29.3333326776831,57.1666608254116">
+              End="75.3333326776834,57.1666608254113">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.3333304127058" />
+                    End="0,28.3333304127056" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.3333304127058"
-                    Point2="0,32.3333304127058"
-                    Point3="4,32.3333304127058" />
+                    Point1="0,28.3333304127056"
+                    Point2="0,32.3333304127056"
+                    Point3="4,32.3333304127056" />
                   <mssgle:LineSegment
-                    End="25.3333326776831,32.3333304127058" />
+                    End="71.3333326776834,32.3333304127056" />
                   <mssgle:CubicBezierSegment
-                    Point1="25.3333326776831,32.3333304127058"
-                    Point2="29.3333326776831,32.3333304127058"
-                    Point3="29.3333326776831,36.3333304127058" />
+                    Point1="71.3333326776834,32.3333304127056"
+                    Point2="75.3333326776834,32.3333304127056"
+                    Point3="75.3333326776834,36.3333304127056" />
                   <mssgle:LineSegment
-                    End="29.3333326776831,57.1666608254116" />
+                    End="75.3333326776834,57.1666608254113" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2425,18 +2425,30 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_Load_Products.Paths[Derived Column Output1]"
-          TopLeft="620.499984040857,493.666654179494">
+          TopLeft="668.999983757736,493.666654179494">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.6666658918067"
+              EndConnector="-60.999999433757,46.6666658918074"
               Start="0,0"
-              End="0,39.1666658918067">
+              End="-60.999999433757,39.1666658918074">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.1666658918067" />
+                    End="0,19.3333329459037" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.3333329459037"
+                    Point2="0,23.3333329459037"
+                    Point3="-4,23.3333329459037" />
+                  <mssgle:LineSegment
+                    End="-56.999999433757,23.3333329459037" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.999999433757,23.3333329459037"
+                    Point2="-60.999999433757,23.3333329459037"
+                    Point3="-60.999999433757,27.3333329459037" />
+                  <mssgle:LineSegment
+                    End="-60.999999433757,39.1666658918074" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2471,7 +2483,7 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Load_Products\OLE DB Destination">
+    design-time-name="Package\DFT_Load_Products\Products Dimension Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2484,7 +2496,7 @@ LEFT JOIN dbo.DimProduct dp ON dp.ProductID = s.ProductID</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Load_Products\OLE DB Destination 1">
+    design-time-name="Package\DFT_Load_Products\Rejected Records">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

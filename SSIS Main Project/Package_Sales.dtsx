@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package_Sales"
   DTS:PackageType="5"
-  DTS:VersionBuild="173"
-  DTS:VersionGUID="{F6C0F648-5EDE-4169-B204-1F281E235343}">
+  DTS:VersionBuild="178"
+  DTS:VersionGUID="{BB793AA2-DB6E-4A50-9361-CD3F57B488EA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -183,7 +183,8 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252">
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\krthapa\source\repos\SSIS Main Project\Input\Sales_20260910.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -320,7 +321,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABSprAT+EazjV6b43ONv8bP30pRcOUqi8K5gT9dObCjWgAAAAAOgAAAAAIAACAAAAB5fNI5RDxNsJpm+LbG9SWTkCcCZDSG1UJlhG96uXxvjyAAAADxinUz0DcF+122frc2KO3lm7j2fklQRT5lJ2WGGRe7gUAAAADeqJugHriXWcoTKi7+C0JtU9VbZC3X3Co046aHJfbTgUxFCABYwKDQ8KI1ZN4VsJzLJqaPR03BownskxiLxQp5</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwkpjCHjbU6zVukdMGcjAAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACCWH17ylW8K7hfsBM1eLcJoILjWAZofu9V4/W77SCIhgAAAAAOgAAAAAIAACAAAADOHqZGaVNs0SCs/nOSuiTakNXuBulNBoWm+SRHKx/ixyAAAABMuRAKXPHumLze2djNh6aAd987vy85yxJWx+qOv3yw9kAAAAAM28SpS88c0Ero2bDFZ+6qlBsdBbZF117dYIqPT3BiG5mFVMRQ3j9MmOy/LoBXTAQOkvHT+dXG/g0wWB6hRXmG</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -403,7 +404,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ArchiveFullPathSales">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\krthapa\source\repos\SSIS Main Project\Archive\</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\krthapa\source\repos\SSIS Main Project\Archive\Sales_20260910.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -421,20 +422,18 @@
       DTS:Namespace="User"
       DTS:ObjectName="CurrentSalesFile">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">C:\Users\krthapa\source\repos\SSIS Main Project\Input\Sales_20260910.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{6DD0B2C9-CB85-4422-A600-5E4691DDB5C0}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="LEN(@[User::CurrentSalesFile]) == 0 ? &quot;&quot; : (FINDSTRING(REVERSE(@[User::CurrentSalesFile]), &quot;\\&quot;, 1) == 0 ? @[User::CurrentSalesFile] : SUBSTRING(@[User::CurrentSalesFile], LEN(@[User::CurrentSalesFile]) - FINDSTRING(REVERSE(@[User::CurrentSalesFile]), &quot;\\&quot;, 1) + 2, 4000))"
+      DTS:Expression="RIGHT(@[User::CurrentSalesFile], FINDSTRING(REVERSE(@[User::CurrentSalesFile]), &quot;\\&quot;, 1) - 1)"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="CurrentSalesFileName">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">Sales_20260910.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -518,62 +517,62 @@
               version="1">
               <components>
                 <component
-                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable"
+                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData"
                   componentClassID="Microsoft.DerivedColumn"
                   contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
                   description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                  name="Add Column SourceFile and SourceTable"
+                  name="Add Column SourceFile, SourceTable and RawData"
                   usesDispositions="true">
                   <inputs>
                     <input
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input]"
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input]"
                       description="Input to the Derived Column Transformation"
                       name="Derived Column Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[SaleID]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input].Columns[SaleID]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="SaleID"
                           lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[SaleID]" />
                         <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[SaleDate]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input].Columns[SaleDate]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="SaleDate"
                           lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[SaleDate]" />
                         <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[CustomerID]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input].Columns[CustomerID]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="CustomerID"
                           lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[CustomerID]" />
                         <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[ProductID]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input].Columns[ProductID]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="ProductID"
                           lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[ProductID]" />
                         <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[StoreID]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input].Columns[StoreID]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="StoreID"
                           lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[StoreID]" />
                         <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[Quantity]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input].Columns[Quantity]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Quantity"
                           lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1].Columns[Quantity]" />
                         <inputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input].Columns[UnitPrice]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input].Columns[UnitPrice]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -585,20 +584,20 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output]"
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output]"
                       description="Default Output of the Derived Column Transformation"
                       exclusionGroup="1"
                       name="Derived Column Output"
-                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input]">
+                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceFile]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output].Columns[SourceFile]"
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Computation"
                           errorRowDisposition="FailComponent"
                           length="500"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceFile]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output].Columns[SourceFile]"
                           name="SourceFile"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -616,13 +615,13 @@
                           </properties>
                         </outputColumn>
                         <outputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceTable]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output].Columns[SourceTable]"
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Computation"
                           errorRowDisposition="FailComponent"
                           length="500"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceTable]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output].Columns[SourceTable]"
                           name="SourceTable"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -640,13 +639,13 @@
                           </properties>
                         </outputColumn>
                         <outputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[RawData]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output].Columns[RawData]"
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Computation"
                           errorRowDisposition="FailComponent"
                           length="500"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[RawData]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output].Columns[RawData]"
                           name="RawData"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -667,23 +666,23 @@
                       <externalMetadataColumns />
                     </output>
                     <output
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Error Output]"
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Error Output]"
                       description="Error Output of the Derived Column Transformation"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Derived Column Error Output"
-                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input]">
+                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -2214,7 +2213,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                           cachedLength="500"
                           cachedName="SourceFile"
                           externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[SourceFile]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceFile]" />
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output].Columns[SourceFile]" />
                         <inputColumn
                           refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].Columns[ValidationError]"
                           cachedCodepage="1252"
@@ -2230,7 +2229,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                           cachedLength="500"
                           cachedName="SourceTable"
                           externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[SourceTable]" />
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output].Columns[SourceTable]" />
                         <inputColumn
                           refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].Columns[SaleID]"
                           cachedCodepage="1252"
@@ -2246,7 +2245,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                           cachedLength="500"
                           cachedName="RawData"
                           externalMetadataColumnId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input].ExternalColumns[RawData]"
-                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output].Columns[RawData]" />
+                          lineageId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output].Columns[RawData]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2316,40 +2315,11 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count"
+                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsInserted"
                   componentClassID="Microsoft.RowCount"
                   contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
                   description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-                  name="Row Count">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable to hold the row count."
-                      name="VariableName">User::RecordsRead</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count.Inputs[Row Count Input 1]"
-                      hasSideEffects="true"
-                      name="Row Count Input 1">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count.Outputs[Row Count Output 1]"
-                      name="Row Count Output 1"
-                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count.Inputs[Row Count Input 1]">
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 1"
-                  componentClassID="Microsoft.RowCount"
-                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-                  name="Row Count 1">
+                  name="Row Count for RecordsInserted">
                   <properties>
                     <property
                       dataType="System.String"
@@ -2358,7 +2328,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   </properties>
                   <inputs>
                     <input
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 1.Inputs[Row Count Input 1]"
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsInserted.Inputs[Row Count Input 1]"
                       hasSideEffects="true"
                       name="Row Count Input 1">
                       <externalMetadataColumns />
@@ -2366,19 +2336,48 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 1.Outputs[Row Count Output 1]"
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsInserted.Outputs[Row Count Output 1]"
                       name="Row Count Output 1"
-                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 1.Inputs[Row Count Input 1]">
+                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsInserted.Inputs[Row Count Input 1]">
                       <externalMetadataColumns />
                     </output>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 2"
+                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRead"
                   componentClassID="Microsoft.RowCount"
                   contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
                   description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-                  name="Row Count 2">
+                  name="Row Count for RecordsRead">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::RecordsRead</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRead.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRead.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRead.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRejected"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count for RecordsRejected">
                   <properties>
                     <property
                       dataType="System.String"
@@ -2387,7 +2386,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   </properties>
                   <inputs>
                     <input
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 2.Inputs[Row Count Input 1]"
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRejected.Inputs[Row Count Input 1]"
                       hasSideEffects="true"
                       name="Row Count Input 1">
                       <externalMetadataColumns />
@@ -2395,9 +2394,9 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 2.Outputs[Row Count Output 1]"
+                      refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRejected.Outputs[Row Count Output 1]"
                       name="Row Count Output 1"
-                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 2.Inputs[Row Count Input 1]">
+                      synchronousInputId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRejected.Inputs[Row Count Input 1]">
                       <externalMetadataColumns />
                     </output>
                   </outputs>
@@ -3390,9 +3389,9 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Missing Stores.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Derived Column Output4]"
-                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 2.Inputs[Row Count Input 1]"
+                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRejected.Inputs[Row Count Input 1]"
                   name="Derived Column Output"
-                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Outputs[Derived Column Output]" />
+                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[InvalidRows]"
                   endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Inputs[Union All Input 1]"
@@ -3400,7 +3399,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Conditional Split.Outputs[InvalidRows]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output1]"
-                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 1.Inputs[Row Count Input 1]"
+                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsInserted.Inputs[Row Count Input 1]"
                   name="Lookup Match Output"
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Store.Outputs[Lookup Match Output]" />
                 <path
@@ -3430,27 +3429,27 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Store.Outputs[Lookup No Match Output]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[OLE DB Source Output]"
-                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count.Inputs[Row Count Input 1]"
+                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRead.Inputs[Row Count Input 1]"
                   name="OLE DB Source Output"
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source.Outputs[OLE DB Source Output]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Row Count Output 1]"
                   endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Validation.Inputs[Derived Column Input]"
                   name="Row Count Output 1"
-                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count.Outputs[Row Count Output 1]" />
+                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRead.Outputs[Row Count Output 1]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Row Count Output 11]"
                   endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Fact Sales Table.Inputs[OLE DB Destination Input]"
                   name="Row Count Output 1"
-                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 1.Outputs[Row Count Output 1]" />
+                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsInserted.Outputs[Row Count Output 1]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Row Count Output 12]"
                   endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table.Inputs[OLE DB Destination Input]"
                   name="Row Count Output 1"
-                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 2.Outputs[Row Count Output 1]" />
+                  startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRejected.Outputs[Row Count Output 1]" />
                 <path
                   refId="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Union All Output 1]"
-                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable.Inputs[Derived Column Input]"
+                  endId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData.Inputs[Derived Column Input]"
                   name="Union All Output 1"
                   startId="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Union All.Outputs[Union All Output 1]" />
                 <path
@@ -4105,7 +4104,7 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{89213693-A170-4D9B-BECB-11E9DA39D08E}"
-              SQLTask:SqlStatementSource="INSERT INTO dbo.AuditLog (PackageName, SourceFile, StartTime, Status)&#xA;OUTPUT INSERTED.AuditID&#xA;VALUES ('SSISFinal', ?, GETDATE(), 'Running');"
+              SQLTask:SqlStatementSource="INSERT INTO dbo.AuditLog (PackageName, SourceFile, StartTime, Status)&#xA;OUTPUT INSERTED.AuditID&#xA;VALUES ('Package_Sales', ?, GETDATE(), 'Running');"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="0"
@@ -4231,8 +4230,8 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{1B3514C8-E8CB-4264-B946-E495E0AC7F24}"
-          DTS:ObjectName="{1B3514C8-E8CB-4264-B946-E495E0AC7F24}"
+          DTS:DTSID="{3541A2AA-1ACA-48ED-B261-891E71FDB876}"
+          DTS:ObjectName="{3541A2AA-1ACA-48ED-B261-891E71FDB876}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::CurrentSalesFile" />
       </DTS:ForEachVariableMappings>
@@ -4602,16 +4601,16 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Missing Products"
           TopLeft="448.888875510958,404.333324654235" />
         <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 1"
+          Size="229.333333333334,42.6666666666667"
+          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsInserted"
           TopLeft="184.99999448657,543.666651318471" />
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\OLE DB Source"
           TopLeft="353.777767234379,2.11111110779973" />
         <NodeLayout
-          Size="132,42.6666666666667"
-          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count"
+          Size="216,42.6666666666667"
+          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRead"
           TopLeft="368.999989002943,75.9999977946282" />
         <NodeLayout
           Size="170.666666666667,42.6666666666667"
@@ -4634,8 +4633,8 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Lookup Product"
           TopLeft="173.333328167598,403.962951469201" />
         <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count 2"
+          Size="232,42.6666666666667"
+          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Row Count for RecordsRejected"
           TopLeft="964.99997124076,531.666651676099" />
         <NodeLayout
           Size="142.666666666667,42.6666666666667"
@@ -4658,8 +4657,8 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Rejected Table"
           TopLeft="967.333304504555,611.851840321665" />
         <NodeLayout
-          Size="276,42.6666666666667"
-          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile and SourceTable"
+          Size="325.333333333334,42.6666666666667"
+          Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales\Add Column SourceFile, SourceTable and RawData"
           TopLeft="926.666639049849,466.185177996203" />
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Lookup Match Output1]"
@@ -4667,33 +4666,33 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.9999996523057,24.8148109934951"
+              EndConnector="54.9999996523053,24.8148109934954"
               Start="0,0"
-              End="10.9999996523057,17.3148109934951">
+              End="54.9999996523053,17.3148109934954">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.40740549674757" />
+                    End="0,8.40740549674769" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.40740549674757"
-                    Point2="0,12.4074054967476"
-                    Point3="4,12.4074054967476" />
+                    Point1="0,8.40740549674769"
+                    Point2="0,12.4074054967477"
+                    Point3="4,12.4074054967477" />
                   <mssgle:LineSegment
-                    End="6.99999965230575,12.4074054967476" />
+                    End="50.9999996523053,12.4074054967477" />
                   <mssgle:CubicBezierSegment
-                    Point1="6.99999965230575,12.4074054967476"
-                    Point2="10.9999996523057,12.4074054967476"
-                    Point3="10.9999996523057,16.4074054967476" />
+                    Point1="50.9999996523053,12.4074054967477"
+                    Point2="54.9999996523053,12.4074054967477"
+                    Point3="54.9999996523053,16.4074054967477" />
                   <mssgle:LineSegment
-                    End="10.9999996523057,17.3148109934951" />
+                    End="54.9999996523053,17.3148109934954" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-42.6913868925971,17.4074054967476,96.3827734375,11.609375"
+              BoundingBox="-20.6913868925974,17.4074054967477,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4759,30 +4758,30 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Derived Column Output4]"
-          TopLeft="1064.66663904985,508.85184466287">
+          TopLeft="1089.33330571652,508.85184466287">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-29.0000011424224,22.814807013229"
+              EndConnector="-8.33333447575546,22.8148070132294"
               Start="0,0"
-              End="-29.0000011424224,15.314807013229">
+              End="-8.33333447575546,15.3148070132294">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.40740350661451" />
+                    End="0,7.40740350661468" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.40740350661451"
-                    Point2="0,11.4074035066145"
-                    Point3="-4,11.4074035066145" />
+                    Point1="0,7.40740350661468"
+                    Point2="0,11.4074035066147"
+                    Point3="-4,11.4074035066147" />
                   <mssgle:LineSegment
-                    End="-25.0000011424224,11.4074035066145" />
+                    End="-4.33333447575546,11.4074035066147" />
                   <mssgle:CubicBezierSegment
-                    Point1="-25.0000011424224,11.4074035066145"
-                    Point2="-29.0000011424224,11.4074035066145"
-                    Point3="-29.0000011424224,15.4074035066145" />
+                    Point1="-4.33333447575546,11.4074035066147"
+                    Point2="-8.33333447575546,11.4074035066147"
+                    Point3="-8.33333447575546,15.4074035066147" />
                   <mssgle:LineSegment
-                    End="-29.0000011424224,15.314807013229" />
+                    End="-8.33333447575546,15.3148070132294" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4883,18 +4882,18 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Derived Column Output]"
-          TopLeft="430.444433732166,188.111106836133">
+          TopLeft="430.444433732166,188.111106836134">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.1111090911759"
+              EndConnector="0,25.1111090911754"
               Start="0,0"
-              End="0,17.6111090911759">
+              End="0,17.6111090911754">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.6111090911759" />
+                    End="0,17.6111090911754" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4945,26 +4944,26 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="197.55555138323,28.0740736435961"
+              EndConnector="222.222218049897,28.0740736435963"
               Start="0,0"
-              End="197.55555138323,20.5740736435961">
+              End="222.222218049897,20.5740736435963">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.44651071305422" />
+                    End="0,7.44651071305429" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.44651071305422"
-                    Point2="0,11.4465107130542"
-                    Point3="4,11.4465107130542" />
+                    Point1="0,7.44651071305429"
+                    Point2="0,11.4465107130543"
+                    Point3="4,11.4465107130543" />
                   <mssgle:LineSegment
-                    End="193.55555138323,11.4465107130542" />
+                    End="218.222218049897,11.4465107130543" />
                   <mssgle:CubicBezierSegment
-                    Point1="193.55555138323,11.4465107130542"
-                    Point2="197.55555138323,11.4465107130542"
-                    Point3="197.55555138323,15.4465107130542" />
+                    Point1="218.222218049897,11.4465107130543"
+                    Point2="222.222218049897,11.4465107130543"
+                    Point3="222.222218049897,15.4465107130543" />
                   <mssgle:LineSegment
-                    End="197.55555138323,20.5740736435961" />
+                    End="222.222218049897,20.5740736435963" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4975,18 +4974,30 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Row Count Output 12]"
-          TopLeft="1039.49997120599,574.333318342766">
+          TopLeft="1080.99997124076,574.333318342766">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.5185219788993"
+              EndConnector="-37.6666667362051,37.5185219788993"
               Start="0,0"
-              End="0,30.0185219788993">
+              End="-37.6666667362051,30.0185219788993">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.0185219788993" />
+                    End="0,14.7592609894497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.7592609894497"
+                    Point2="0,18.7592609894497"
+                    Point3="-4,18.7592609894497" />
+                  <mssgle:LineSegment
+                    End="-33.6666667362051,18.7592609894497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33.6666667362051,18.7592609894497"
+                    Point2="-37.6666667362051,18.7592609894497"
+                    Point3="-37.6666667362051,22.7592609894497" />
+                  <mssgle:LineSegment
+                    End="-37.6666667362051,30.0185219788993" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4997,13 +5008,13 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Row Count Output 11]"
-          TopLeft="255.666661153237,586.333317985138">
+          TopLeft="299.666661153237,586.333317985138">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-15.1111103826096,23.7777797712223"
+              EndConnector="-59.1111103826096,23.7777797712223"
               Start="0,0"
-              End="-15.1111103826096,16.2777797712223">
+              End="-59.1111103826096,16.2777797712223">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -5014,13 +5025,13 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
                     Point2="0,11.8888898856111"
                     Point3="-4,11.8888898856111" />
                   <mssgle:LineSegment
-                    End="-11.1111103826096,11.8888898856111" />
+                    End="-55.1111103826096,11.8888898856111" />
                   <mssgle:CubicBezierSegment
-                    Point1="-11.1111103826096,11.8888898856111"
-                    Point2="-15.1111103826096,11.8888898856111"
-                    Point3="-15.1111103826096,15.8888898856111" />
+                    Point1="-55.1111103826096,11.8888898856111"
+                    Point2="-59.1111103826096,11.8888898856111"
+                    Point3="-59.1111103826096,15.8888898856111" />
                   <mssgle:LineSegment
-                    End="-15.1111103826096,16.2777797712223" />
+                    End="-59.1111103826096,16.2777797712223" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5031,18 +5042,30 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[Row Count Output 1]"
-          TopLeft="433.055544576711,118.666664461295">
+          TopLeft="476.999989002943,118.666664461295">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,26.7777757081723"
+              EndConnector="-45.8888888524637,26.7777757081721"
               Start="0,0"
-              End="0,19.2777757081723">
+              End="-45.8888888524637,19.2777757081721">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.2777757081723" />
+                    End="0,9.38888785408606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.38888785408606"
+                    Point2="0,13.3888878540861"
+                    Point3="-4,13.3888878540861" />
+                  <mssgle:LineSegment
+                    End="-41.8888888524637,13.3888878540861" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.8888888524637,13.3888878540861"
+                    Point2="-45.8888888524637,13.3888878540861"
+                    Point3="-45.8888888524637,17.3888878540861" />
+                  <mssgle:LineSegment
+                    End="-45.8888888524637,19.2777757081721" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5053,18 +5076,30 @@ LEFT JOIN dbo.FactSales fs ON fs.SaleID = s.SaleID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FELC_Process_SalesFiles\DFT_Load_Sales.Paths[OLE DB Source Output]"
-          TopLeft="433.055544785328,44.7777777744664">
+          TopLeft="431.111100567712,44.7777777744664">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.2222200201618"
+              EndConnector="45.8888884352307,31.2222200201618"
               Start="0,0"
-              End="0,23.7222200201618">
+              End="45.8888884352307,23.7222200201618">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.7222200201618" />
+                    End="0,11.6111100100809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.6111100100809"
+                    Point2="0,15.6111100100809"
+                    Point3="4,15.6111100100809" />
+                  <mssgle:LineSegment
+                    End="41.8888884352307,15.6111100100809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.8888884352307,15.6111100100809"
+                    Point2="45.8888884352307,15.6111100100809"
+                    Point3="45.8888884352307,19.6111100100809" />
+                  <mssgle:LineSegment
+                    End="45.8888884352307,23.7222200201618" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
